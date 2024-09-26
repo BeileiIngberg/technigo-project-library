@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Don't forget to connect the CSS file -->
+  <link rel="stylesheet" type="text/css" href="style.css">
   <title>Library</title>
 </head>
+
+<div class="hero">
+  <div class="text-content">
+    <h1>Joy of reading</h1>
+    <p>Browse through our fantastic collection of classic litterature.<br> Find the perfect read for your litterary
+      immersion.</p>
+  </div>
+</div>
+
 <body>
-  <h1>Library</h1>
-  <!-- Don't forget to connect the JavaScript file -->
+  <div class="filter-container">
+    <button class="filter-item genre" id="fantasy">Fantasy</button>
+    <button class="filter-item genre" id="science-fiction">Science Fiction</button>
+    <button class="filter-item genre" id="dystopian">Dystopian</button>
+    <button class="filter-item genre" id="mystery">Mystery</button>
+    <button class="filter-item genre" id="horror">Horror</button>
+    <button class="filter-item genre" id="fiction">Fiction</button>
+  </div>
+
+  <div class="filter-sort">
+    <h2>Filter</h2>
+    <select id="filter-dropdown">
+      <option value="" selected disabled hidden>Please select</option>
+      <option value="before21stcentury">Before 21st century </option>
+      <option value="from21stcentury">From 21st century </option>
+    </select>
+    <h2>Sort ratings</h2>
+    <select id="sort-dropdown">
+      <option value="" selected disabled hidden>Please select</option>
+      <option value="ascending">Ascending</option>
+      <option value="descending">Descending</option>
+    </select>
+  </div>
+
+  <div class="booklist" id="booklist">
+  </div>
+  <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
