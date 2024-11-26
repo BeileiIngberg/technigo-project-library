@@ -33,7 +33,7 @@
       <option value="before21stcentury">Before 21st century </option>
       <option value="from21stcentury">From 21st century </option>
     </select>
-    <h2>Sort ratings</h2>
+    <h2>Sort by ratings</h2>
     <select id="sort-dropdown">
       <option value="" selected disabled hidden>Please select</option>
       <option value="ascending">Ascending</option>
@@ -41,8 +41,15 @@
     </select>
   </div>
 
+  <div class="favorites-sidebar hidden">
+    <ul id="favList"></ul>
+  </div>
+
+  <button class="toggle-favorites">My favorites</button>
+
   <div class="booklist" id="booklist">
   </div>
+
   <script type="text/javascript" src="script.js"></script>
 </body>
 

@@ -189,8 +189,32 @@ const originalBooks = [
 ]
 
 /*
-display all books in innerHTML
+display favorite books in the sidebar
+display all books in innerHTML & display selected books at a later stage
 */
+let favoriteBooks = []; 
+
+const displayFavoriteBooks = (books) => {
+  const favoriteBooksContainer = document.getElementById('favList');
+  favoriteBooksContainer.innerHTML = "";
+  for (let i = 0; i < books.length; i++) {
+    const bookDiv = document.createElement('div');
+    bookDiv.classList.add('book-title');
+
+    bookDiv.innerHTML = `<h2>${books[i].title}</h2>`;
+
+    favoriteBooksContainer.appendChild(bookDiv);
+  }
+};
+
+const addToFavorites = (title) => {
+  const book = originalBooks.find(book => book.title === title);
+  if (book && !favoriteBooks.includes(book)) {
+    favoriteBooks.push(book);
+    displayFavoriteBooks(favoriteBooks);
+  }
+};
+
 const displayBooks = (books) => {
   const bookList = document.getElementById('booklist');
   bookList.innerHTML = ""
@@ -200,6 +224,7 @@ const displayBooks = (books) => {
 
     bookDiv.innerHTML = `
             <h2>${books[i].title}</h2>
+            <button class="add-to-favorites">Add to favorites</button>
             <p>${books[i].author}, ${books[i].year}</p>
             <p>${books[i].genre}</p>
             <p>rating: ${books[i].rating}</p>
@@ -207,8 +232,14 @@ const displayBooks = (books) => {
             <img src=${books[i].image} />`;
 
     bookList.appendChild(bookDiv);
+
+    const favoriteButton = bookDiv.querySelector('.add-to-favorites');
+    favoriteButton.addEventListener('click', () => {
+      addToFavorites(originalBooks[i].title)
+    })
   }
 };
+
 /*
 sorting buttons by genre
 */
@@ -262,7 +293,7 @@ selector1.addEventListener("change", (event) => {
 const selector2 = document.getElementById("sort-dropdown")
 selector2.addEventListener("change", (event) => {
   if (event.target.value === "ascending") {
-    const sortAscendingly = originalBooks.sort((a,b) => parseFloat(a.rating) - parseFloat(b.rating))
+    const sortAscendingly = originalBooks.sort((a,b) => a.rating  - b.rating)
     displayBooks(sortAscendingly)
   }
   else {
@@ -270,3 +301,10 @@ selector2.addEventListener("change", (event) => {
     displayBooks(sortDescendingly)
   }
 })
+
+/*toggle My favorites button */
+document.querySelector('.toggle-favorites').addEventListener('click', () => {
+  const box = document.querySelector('.favorites-sidebar');
+  box.classList.toggle('hidden');
+})
+

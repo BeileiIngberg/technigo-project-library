@@ -2,6 +2,8 @@ body {
   background: #ccd5ae;
   margin: 0;
   padding: 0;
+  text-align: center;
+  height: 100vh;
 }
 
 .hero {
@@ -18,7 +20,7 @@ body {
   padding-left: 30px;
   align-items: flex-start;
   justify-content: center;
-  height: 600px;
+  max-height: 600px;
   width: 30%;
 }
 
@@ -27,7 +29,7 @@ h1 {
 }
 
 .hero p {
-  font-size: 40px;
+  font-size: 3vw;
 }
 
 .filter-sort {
@@ -41,6 +43,7 @@ h1 {
 .filter-container {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
   padding: 20px;
   gap: 20px;
@@ -49,36 +52,68 @@ h1 {
 .filter-item {
   flex: 1;
   text-align: center;
-  line-height:38px;
 }
 
-.filter-item:onclick {
-  background-color: darkblue;
+button:active {
+  background-color: blue;
 }
 
 .booklist {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  gap: 30px;
-  align-items: stretch;
+  margin: 20px;
   justify-content: space-around;
-  height: 100vh;
+}
+
+.book:hover {
+  transform: scale(1.1); 
 }
 
 .book img {
   width: 100%;
   height: 300px;
-  margin-top: auto;
+  margin-top: 10px;
 }
 
 .book {
   flex: 1 1 350px;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   text-align: center;
   background-color: #fefae0;
   margin: 35px;
   max-width: 350px;
-  max-height: 50vh;
+}
+
+.booklist button {
+  width: max-content;
+  align-self: center;
+}
+
+.toggle-favorites {
+  position: center;
+}
+
+.favorites-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+  background-color: #EAB27F;
+}
+
+.favorites-sidebar.hidden {
+  transform: translateX(100%);
+}
+
+.favorites-sidebar:not(.hidden) {
+  transform: translateX(0);
 }
