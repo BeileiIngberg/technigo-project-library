@@ -1,6 +1,6 @@
 # Library
 
-Replace this readme with your own information about the project. You can include things like:
+A project incorporating HTML, CSS and JavaScript. 
 
 - Brief description of the assignment
 - How you approached the task, what tools and techniques you used, and how you planned it
